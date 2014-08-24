@@ -1,9 +1,9 @@
 # RProg Assignment 2
 
-makeMatrix <- function(x = matrix()) {
-        m <- NULL
-        set <- function(y) {
-                x <<- y
+makeMatrix <- function(x = matrix()) {  
+        m <- NULL                # m will store the matrix until function is called. Then it'll be stored as NULL
+        set <- function(y) {     # takes input vector
+                x <<- y          # saves input vector
                 m <<- NULL
         }
         get <- function() x
@@ -21,8 +21,13 @@ cacheinv <- function(x, ...) {
                 return(m)
         }
         data <- x$get()
-        m <- solve(data, ...)
-        x$setinv(m)
-        m
+        m <- solve(data, ...)      # computing inverse of matrix
+        x$setinv(m)                # stores the matrix (inverse)
+        m                          # returns the matrix (inverse)
 }
 
+
+# tested using following commands in R console:
+# a <- matrix(1:4,2,2)
+# b <- makeMatrix(a)
+# cacheinv(b)
